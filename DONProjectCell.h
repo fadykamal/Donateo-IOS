@@ -11,5 +11,10 @@
 @interface DONProjectCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *projectImage;
 @property (weak, nonatomic) IBOutlet UILabel *projectTitle;
+@property (weak, nonatomic) IBOutlet UILabel *collectedAmount;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmount;
+@property (weak, nonatomic) IBOutlet UILabel *followersNo;
+@property (weak, nonatomic) IBOutlet UILabel *daysLeft;
 
 @end
