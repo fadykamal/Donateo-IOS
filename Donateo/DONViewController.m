@@ -79,9 +79,16 @@
         //NSLog(@"Dictionary :%@",xmlDictionary);
         NSDictionary* resultDict1 = [[xmlDictionary allValues] objectAtIndex:0];
         NSDictionary* resultDict2 = [[resultDict1 allValues] objectAtIndex:1];
-        NSString *XMLmessage = [resultDict2 objectForKey:@"text"];
+        //NSString *XMLmessage = [resultDict2 objectForKey:@"text"]; //Uncomment this later
 //        NSLog(@"%@", XMLmessage);
+        NSString *XMLmessage = @"SUCCESS"; //comment this later
         
+        if ([XMLmessage isEqual: @"SUCCESS"]) {
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            UICollectionViewController *vc = [sb instantiateViewControllerWithIdentifier:@"DONTabViewController"];
+            vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            [self presentViewController:vc animated:YES completion:NULL];
+        }
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert"
                                                           message:XMLmessage
                                                          delegate:nil
