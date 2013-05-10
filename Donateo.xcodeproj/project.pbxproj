@@ -31,6 +31,10 @@
 		AD1B18DA173D2758005D2C25 /* thai_shrimp_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18C8173D2758005D2C25 /* thai_shrimp_cake.jpg */; };
 		AD1B18DB173D2758005D2C25 /* vegetable_curry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18C9173D2758005D2C25 /* vegetable_curry.jpg */; };
 		AD1B18DC173D2758005D2C25 /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18CA173D2758005D2C25 /* white_chocolate_donut.jpg */; };
+		AD1B18DE173D3BE6005D2C25 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18DD173D3BE6005D2C25 /* background.png */; };
+		AD1B18E2173D41CB005D2C25 /* RoundedBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18E1173D41CB005D2C25 /* RoundedBG.png */; };
+		AD1B18E5173D59DE005D2C25 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B18E4173D59DE005D2C25 /* Project.m */; };
+		AD1B18E8173D71D7005D2C25 /* DONProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */; };
 		AD7651BF1715C6E900ED3651 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651BE1715C6E900ED3651 /* UIKit.framework */; };
 		AD7651C11715C6E900ED3651 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651C01715C6E900ED3651 /* Foundation.framework */; };
 		AD7651C31715C6E900ED3651 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651C21715C6E900ED3651 /* CoreGraphics.framework */; };
@@ -74,6 +78,12 @@
 		AD1B18C8173D2758005D2C25 /* thai_shrimp_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thai_shrimp_cake.jpg; sourceTree = "<group>"; };
 		AD1B18C9173D2758005D2C25 /* vegetable_curry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vegetable_curry.jpg; sourceTree = "<group>"; };
 		AD1B18CA173D2758005D2C25 /* white_chocolate_donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_chocolate_donut.jpg; sourceTree = "<group>"; };
+		AD1B18DD173D3BE6005D2C25 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		AD1B18E1173D41CB005D2C25 /* RoundedBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundedBG.png; sourceTree = "<group>"; };
+		AD1B18E3173D59DE005D2C25 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = ../Project.h; sourceTree = "<group>"; };
+		AD1B18E4173D59DE005D2C25 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = ../Project.m; sourceTree = "<group>"; };
+		AD1B18E6173D71D7005D2C25 /* DONProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DONProjectCell.h; path = ../DONProjectCell.h; sourceTree = "<group>"; };
+		AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DONProjectCell.m; path = ../DONProjectCell.m; sourceTree = "<group>"; };
 		AD7651BB1715C6E900ED3651 /* Donateo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donateo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7651BE1715C6E900ED3651 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD7651C01715C6E900ED3651 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +142,26 @@
 			path = RecipeBookImage;
 			sourceTree = "<group>";
 		};
+		AD1B18E9173D71F3005D2C25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD1B18A21735DF90005D2C25 /* User.h */,
+				AD1B18A31735DF90005D2C25 /* User.m */,
+				AD1B18E3173D59DE005D2C25 /* Project.h */,
+				AD1B18E4173D59DE005D2C25 /* Project.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AD1B18EA173D723D005D2C25 /* XML Reader */ = {
+			isa = PBXGroup;
+			children = (
+				AD1B18AB173B10C6005D2C25 /* XMLReader.h */,
+				AD1B18AC173B10C6005D2C25 /* XMLReader.m */,
+			);
+			name = "XML Reader";
+			sourceTree = "<group>";
+		};
 		AD7651B21715C6E900ED3651 = {
 			isa = PBXGroup;
 			children = (
@@ -163,9 +193,8 @@
 		AD7651C41715C6E900ED3651 /* Donateo */ = {
 			isa = PBXGroup;
 			children = (
-				AD1B18AB173B10C6005D2C25 /* XMLReader.h */,
-				AD1B18AC173B10C6005D2C25 /* XMLReader.m */,
 				AD7651E11715C96800ED3651 /* Assets */,
+				AD1B18EA173D723D005D2C25 /* XML Reader */,
 				AD7651CD1715C6E900ED3651 /* DONAppDelegate.h */,
 				AD7651CE1715C6E900ED3651 /* DONAppDelegate.m */,
 				AD7651D61715C6E900ED3651 /* DONViewController.h */,
@@ -173,12 +202,13 @@
 				AD1B18B0173C6656005D2C25 /* MainStoryboard.storyboard */,
 				AD1B18B5173D2540005D2C25 /* DONProjectCollectionViewController.h */,
 				AD1B18B6173D2540005D2C25 /* DONProjectCollectionViewController.m */,
+				AD1B18E6173D71D7005D2C25 /* DONProjectCell.h */,
+				AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */,
 				AD1B18B2173C6F06005D2C25 /* DONTabViewController.h */,
 				AD1B18B3173C6F06005D2C25 /* DONTabViewController.m */,
 				AD7651D91715C6E900ED3651 /* DONViewController.xib */,
+				AD1B18E9173D71F3005D2C25 /* Models */,
 				AD7651C51715C6E900ED3651 /* Supporting Files */,
-				AD1B18A21735DF90005D2C25 /* User.h */,
-				AD1B18A31735DF90005D2C25 /* User.m */,
 			);
 			path = Donateo;
 			sourceTree = "<group>";
@@ -200,6 +230,8 @@
 		AD7651E11715C96800ED3651 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AD1B18E1173D41CB005D2C25 /* RoundedBG.png */,
+				AD1B18DD173D3BE6005D2C25 /* background.png */,
 				AD1B18AE173B2478005D2C25 /* bg.jpg */,
 				AD7651E61715CBDE00ED3651 /* Donateo.png */,
 			);
@@ -284,6 +316,8 @@
 				AD1B18DA173D2758005D2C25 /* thai_shrimp_cake.jpg in Resources */,
 				AD1B18DB173D2758005D2C25 /* vegetable_curry.jpg in Resources */,
 				AD1B18DC173D2758005D2C25 /* white_chocolate_donut.jpg in Resources */,
+				AD1B18DE173D3BE6005D2C25 /* background.png in Resources */,
+				AD1B18E2173D41CB005D2C25 /* RoundedBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +335,8 @@
 				AD1B18AD173B10C6005D2C25 /* XMLReader.m in Sources */,
 				AD1B18B4173C6F06005D2C25 /* DONTabViewController.m in Sources */,
 				AD1B18B7173D2540005D2C25 /* DONProjectCollectionViewController.m in Sources */,
+				AD1B18E5173D59DE005D2C25 /* Project.m in Sources */,
+				AD1B18E8173D71D7005D2C25 /* DONProjectCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

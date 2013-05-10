@@ -66,7 +66,7 @@
     NSError *error = [[NSError alloc] init];
     NSHTTPURLResponse *response = nil;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSLog(@"Response code: %d", [response statusCode]);
+    //NSLog(@"Response code: %d", [response statusCode]);
     if ([response statusCode] >=200 && [response statusCode] <300)
     {
         NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
@@ -94,7 +94,7 @@
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
-        [message show];
+        //[message show];
     }
     else {
         
