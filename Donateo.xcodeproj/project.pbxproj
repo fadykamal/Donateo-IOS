@@ -35,6 +35,7 @@
 		AD1B18E2173D41CB005D2C25 /* RoundedBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18E1173D41CB005D2C25 /* RoundedBG.png */; };
 		AD1B18E5173D59DE005D2C25 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B18E4173D59DE005D2C25 /* Project.m */; };
 		AD1B18E8173D71D7005D2C25 /* DONProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */; };
+		AD1B18ED173DCD44005D2C25 /* careboxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18EB173DCBAE005D2C25 /* careboxicon.png */; };
 		AD7651BF1715C6E900ED3651 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651BE1715C6E900ED3651 /* UIKit.framework */; };
 		AD7651C11715C6E900ED3651 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651C01715C6E900ED3651 /* Foundation.framework */; };
 		AD7651C31715C6E900ED3651 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651C21715C6E900ED3651 /* CoreGraphics.framework */; };
@@ -84,6 +85,7 @@
 		AD1B18E4173D59DE005D2C25 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = ../Project.m; sourceTree = "<group>"; };
 		AD1B18E6173D71D7005D2C25 /* DONProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DONProjectCell.h; path = ../DONProjectCell.h; sourceTree = "<group>"; };
 		AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DONProjectCell.m; path = ../DONProjectCell.m; sourceTree = "<group>"; };
+		AD1B18EB173DCBAE005D2C25 /* careboxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = careboxicon.png; sourceTree = "<group>"; };
 		AD7651BB1715C6E900ED3651 /* Donateo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donateo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7651BE1715C6E900ED3651 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD7651C01715C6E900ED3651 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,6 +167,7 @@
 		AD7651B21715C6E900ED3651 = {
 			isa = PBXGroup;
 			children = (
+				AD1B18EB173DCBAE005D2C25 /* careboxicon.png */,
 				AD1B18B8173D2758005D2C25 /* RecipeBookImage */,
 				AD7651C41715C6E900ED3651 /* Donateo */,
 				AD7651BD1715C6E900ED3651 /* Frameworks */,
@@ -318,6 +321,7 @@
 				AD1B18DC173D2758005D2C25 /* white_chocolate_donut.jpg in Resources */,
 				AD1B18DE173D3BE6005D2C25 /* background.png in Resources */,
 				AD1B18E2173D41CB005D2C25 /* RoundedBG.png in Resources */,
+				AD1B18ED173DCD44005D2C25 /* careboxicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
