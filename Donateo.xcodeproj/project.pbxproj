@@ -36,6 +36,7 @@
 		AD1B18E5173D59DE005D2C25 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B18E4173D59DE005D2C25 /* Project.m */; };
 		AD1B18E8173D71D7005D2C25 /* DONProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */; };
 		AD1B18ED173DCD44005D2C25 /* careboxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1B18EB173DCBAE005D2C25 /* careboxicon.png */; };
+		AD1B18F0173E91C8005D2C25 /* DONProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B18EF173E91C7005D2C25 /* DONProjectViewController.m */; };
 		AD7651BF1715C6E900ED3651 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651BE1715C6E900ED3651 /* UIKit.framework */; };
 		AD7651C11715C6E900ED3651 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651C01715C6E900ED3651 /* Foundation.framework */; };
 		AD7651C31715C6E900ED3651 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7651C21715C6E900ED3651 /* CoreGraphics.framework */; };
@@ -48,6 +49,10 @@
 		AD7651D81715C6E900ED3651 /* DONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7651D71715C6E900ED3651 /* DONViewController.m */; };
 		AD7651DB1715C6E900ED3651 /* DONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7651D91715C6E900ED3651 /* DONViewController.xib */; };
 		AD7651E71715CBDE00ED3651 /* Donateo.png in Resources */ = {isa = PBXBuildFile; fileRef = AD7651E61715CBDE00ED3651 /* Donateo.png */; };
+		ADE5E438173EDB7D00F86127 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E437173EDB7D00F86127 /* line.png */; };
+		ADE5E43B173EE4F500F86127 /* Follow.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E439173EE4F500F86127 /* Follow.png */; };
+		ADE5E43C173EE4F500F86127 /* Unfollow.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E43A173EE4F500F86127 /* Unfollow.png */; };
+		ADE5E43E173EE5BE00F86127 /* vertical_line.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E43D173EE5BE00F86127 /* vertical_line.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +91,8 @@
 		AD1B18E6173D71D7005D2C25 /* DONProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DONProjectCell.h; path = ../DONProjectCell.h; sourceTree = "<group>"; };
 		AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DONProjectCell.m; path = ../DONProjectCell.m; sourceTree = "<group>"; };
 		AD1B18EB173DCBAE005D2C25 /* careboxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = careboxicon.png; sourceTree = "<group>"; };
+		AD1B18EE173E91C7005D2C25 /* DONProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DONProjectViewController.h; path = ../DONProjectViewController.h; sourceTree = "<group>"; };
+		AD1B18EF173E91C7005D2C25 /* DONProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DONProjectViewController.m; path = ../DONProjectViewController.m; sourceTree = "<group>"; };
 		AD7651BB1715C6E900ED3651 /* Donateo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donateo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7651BE1715C6E900ED3651 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD7651C01715C6E900ED3651 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +110,10 @@
 		AD7651D71715C6E900ED3651 /* DONViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DONViewController.m; sourceTree = "<group>"; };
 		AD7651DA1715C6E900ED3651 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DONViewController.xib; sourceTree = "<group>"; };
 		AD7651E61715CBDE00ED3651 /* Donateo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Donateo.png; sourceTree = "<group>"; };
+		ADE5E437173EDB7D00F86127 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		ADE5E439173EE4F500F86127 /* Follow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Follow.png; sourceTree = "<group>"; };
+		ADE5E43A173EE4F500F86127 /* Unfollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unfollow.png; sourceTree = "<group>"; };
+		ADE5E43D173EE5BE00F86127 /* vertical_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertical_line.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +216,8 @@
 				AD1B18B0173C6656005D2C25 /* MainStoryboard.storyboard */,
 				AD1B18B5173D2540005D2C25 /* DONProjectCollectionViewController.h */,
 				AD1B18B6173D2540005D2C25 /* DONProjectCollectionViewController.m */,
+				AD1B18EE173E91C7005D2C25 /* DONProjectViewController.h */,
+				AD1B18EF173E91C7005D2C25 /* DONProjectViewController.m */,
 				AD1B18E6173D71D7005D2C25 /* DONProjectCell.h */,
 				AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */,
 				AD1B18B2173C6F06005D2C25 /* DONTabViewController.h */,
@@ -237,6 +250,10 @@
 				AD1B18DD173D3BE6005D2C25 /* background.png */,
 				AD1B18AE173B2478005D2C25 /* bg.jpg */,
 				AD7651E61715CBDE00ED3651 /* Donateo.png */,
+				ADE5E437173EDB7D00F86127 /* line.png */,
+				ADE5E439173EE4F500F86127 /* Follow.png */,
+				ADE5E43A173EE4F500F86127 /* Unfollow.png */,
+				ADE5E43D173EE5BE00F86127 /* vertical_line.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -322,6 +339,10 @@
 				AD1B18DE173D3BE6005D2C25 /* background.png in Resources */,
 				AD1B18E2173D41CB005D2C25 /* RoundedBG.png in Resources */,
 				AD1B18ED173DCD44005D2C25 /* careboxicon.png in Resources */,
+				ADE5E438173EDB7D00F86127 /* line.png in Resources */,
+				ADE5E43B173EE4F500F86127 /* Follow.png in Resources */,
+				ADE5E43C173EE4F500F86127 /* Unfollow.png in Resources */,
+				ADE5E43E173EE5BE00F86127 /* vertical_line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +362,7 @@
 				AD1B18B7173D2540005D2C25 /* DONProjectCollectionViewController.m in Sources */,
 				AD1B18E5173D59DE005D2C25 /* Project.m in Sources */,
 				AD1B18E8173D71D7005D2C25 /* DONProjectCell.m in Sources */,
+				AD1B18F0173E91C8005D2C25 /* DONProjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

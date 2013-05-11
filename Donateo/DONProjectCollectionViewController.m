@@ -9,6 +9,7 @@
 #import "DONProjectCollectionViewController.h"
 #import "DONProjectCell.h"
 #import "Project.h"
+#import "DONProjectViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface DONProjectCollectionViewController () {
@@ -26,6 +27,18 @@
         // Custom initialization
     }
     return self;
+}
+//the following to methods to hide navigation bar in the view
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES]; //remove this animated:animated to appear better
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad
@@ -90,6 +103,23 @@
     cell.totalAmount.text = project.totalAmount;
     cell.progressBar.progress = project.percentageCompleted;
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"projectDetail"]) {
+        [segue.destinationViewController view];
+        NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
+        DONProjectViewController *destViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+        //destViewController.detailImageName = [projects[indexPath.section] objectAtIndex:indexPath.row];
+        Project *tmpproject = [projects objectAtIndex:indexPath.row];
+        destViewController.detailImage.image = tmpproject.image;
+        destViewController.detailFollowersNo.text = tmpproject.followersNO;
+        NSString *percentage = [[NSString alloc] initWithFormat:@"%g%@",tmpproject.percentageCompleted*100,@"%"];
+        destViewController.detailPercentage.text = percentage;
+        destViewController.detailDaysToGo.text = tmpproject.daysLeft;
+        //[self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    }
 }
 
 @end
