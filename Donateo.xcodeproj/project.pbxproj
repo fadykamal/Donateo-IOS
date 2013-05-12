@@ -53,6 +53,8 @@
 		ADE5E43B173EE4F500F86127 /* Follow.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E439173EE4F500F86127 /* Follow.png */; };
 		ADE5E43C173EE4F500F86127 /* Unfollow.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E43A173EE4F500F86127 /* Unfollow.png */; };
 		ADE5E43E173EE5BE00F86127 /* vertical_line.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E43D173EE5BE00F86127 /* vertical_line.png */; };
+		ADE5E4451740134100F86127 /* DONMyProjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE5E4441740134100F86127 /* DONMyProjectCollectionViewController.m */; };
+		ADE5E44A1740162000F86127 /* DONMyProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE5E4491740162000F86127 /* DONMyProjectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,10 @@
 		ADE5E439173EE4F500F86127 /* Follow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Follow.png; sourceTree = "<group>"; };
 		ADE5E43A173EE4F500F86127 /* Unfollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unfollow.png; sourceTree = "<group>"; };
 		ADE5E43D173EE5BE00F86127 /* vertical_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertical_line.png; sourceTree = "<group>"; };
+		ADE5E4431740134100F86127 /* DONMyProjectCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DONMyProjectCollectionViewController.h; path = ../DONMyProjectCollectionViewController.h; sourceTree = "<group>"; };
+		ADE5E4441740134100F86127 /* DONMyProjectCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DONMyProjectCollectionViewController.m; path = ../DONMyProjectCollectionViewController.m; sourceTree = "<group>"; };
+		ADE5E4481740162000F86127 /* DONMyProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DONMyProjectViewController.h; sourceTree = "<group>"; };
+		ADE5E4491740162000F86127 /* DONMyProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DONMyProjectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,12 +220,8 @@
 				AD7651D61715C6E900ED3651 /* DONViewController.h */,
 				AD7651D71715C6E900ED3651 /* DONViewController.m */,
 				AD1B18B0173C6656005D2C25 /* MainStoryboard.storyboard */,
-				AD1B18B5173D2540005D2C25 /* DONProjectCollectionViewController.h */,
-				AD1B18B6173D2540005D2C25 /* DONProjectCollectionViewController.m */,
-				AD1B18EE173E91C7005D2C25 /* DONProjectViewController.h */,
-				AD1B18EF173E91C7005D2C25 /* DONProjectViewController.m */,
-				AD1B18E6173D71D7005D2C25 /* DONProjectCell.h */,
-				AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */,
+				ADE5E4461740136300F86127 /* My Projects */,
+				ADE5E4471740142700F86127 /* Recommended Projects */,
 				AD1B18B2173C6F06005D2C25 /* DONTabViewController.h */,
 				AD1B18B3173C6F06005D2C25 /* DONTabViewController.m */,
 				AD7651D91715C6E900ED3651 /* DONViewController.xib */,
@@ -256,6 +258,30 @@
 				ADE5E43D173EE5BE00F86127 /* vertical_line.png */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		ADE5E4461740136300F86127 /* My Projects */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5E4431740134100F86127 /* DONMyProjectCollectionViewController.h */,
+				ADE5E4441740134100F86127 /* DONMyProjectCollectionViewController.m */,
+				ADE5E4481740162000F86127 /* DONMyProjectViewController.h */,
+				ADE5E4491740162000F86127 /* DONMyProjectViewController.m */,
+			);
+			name = "My Projects";
+			sourceTree = "<group>";
+		};
+		ADE5E4471740142700F86127 /* Recommended Projects */ = {
+			isa = PBXGroup;
+			children = (
+				AD1B18B5173D2540005D2C25 /* DONProjectCollectionViewController.h */,
+				AD1B18B6173D2540005D2C25 /* DONProjectCollectionViewController.m */,
+				AD1B18EE173E91C7005D2C25 /* DONProjectViewController.h */,
+				AD1B18EF173E91C7005D2C25 /* DONProjectViewController.m */,
+				AD1B18E6173D71D7005D2C25 /* DONProjectCell.h */,
+				AD1B18E7173D71D7005D2C25 /* DONProjectCell.m */,
+			);
+			name = "Recommended Projects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +389,8 @@
 				AD1B18E5173D59DE005D2C25 /* Project.m in Sources */,
 				AD1B18E8173D71D7005D2C25 /* DONProjectCell.m in Sources */,
 				AD1B18F0173E91C8005D2C25 /* DONProjectViewController.m in Sources */,
+				ADE5E4451740134100F86127 /* DONMyProjectCollectionViewController.m in Sources */,
+				ADE5E44A1740162000F86127 /* DONMyProjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
