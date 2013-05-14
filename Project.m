@@ -9,46 +9,47 @@
 #import "Project.h"
 
 @implementation Project
+@synthesize imageURL,image,title,description,finished,totalAmount,collectedAmount,percentageCompleted,location,followersNO,startDate,deadlineDate,deadlineDateString,daysLeft,id,volunteer,donateMoney,donateObject;
 #pragma mark - Properties
 
-- (UIImage *)image
-{
-    if (!_image && self.imageURL) {
-        NSData *imageData = [NSData dataWithContentsOfURL:self.imageURL];
-        UIImage *image = [UIImage imageWithData:imageData scale:[UIScreen mainScreen].scale];
-        
-        _image = image;
-    }
-    
-    return _image;
-}
+//- (UIImage *)image
+//{
+//    if (!self.image && self.imageURL) {
+//        NSData *imageData = [NSData dataWithContentsOfURL:self.imageURL];
+//        UIImage *image = [UIImage imageWithData:imageData scale:[UIScreen mainScreen].scale];
+//        
+//        _image = image;
+//    }
+//    
+//    return _image;
+//}
 
 #pragma mark - Lifecycle
 
-+ (Project *)photoWithImageURL:(NSURL *)imageURL
-{
-    return [[self alloc] initWithImageURL:imageURL];
-}
+//+ (Project *)photoWithImageURL:(NSURL *)imageURL
+//{
+//    return [[self alloc] initWithImageURL:imageURL];
+//}
+//
+//- (id)initWithImageURL:(NSURL *)imageURLV
+//{
+//    self = [super init];
+//    if (self) {
+//        self.imageURL = imageURLV;
+//    }
+//    return self;
+//}
 
-- (id)initWithImageURL:(NSURL *)imageURL
+- (id)initWithInfo:(UIImage *)imageV title:(NSString *)titleV collectedAmount:(NSString *)collectedAmountV totalAmount:(NSString *)totalAmountV followersNO:(NSString *)followersNOV deadlineDateString:(NSString *)deadlineDateStringV;
 {
     self = [super init];
     if (self) {
-        self.imageURL = imageURL;
-    }
-    return self;
-}
-
-- (id)initWithInfo:(UIImage *)image title:(NSString *)title collectedAmount:(NSString *)collectedAmount totalAmount:(NSString *)totalAmount followersNO:(NSString *)followersNO deadlineDateString:(NSString *)deadlineDateString;
-{
-    self = [super init];
-    if (self) {
-        self.image = image;
-        self.title = title;
-        self.collectedAmount = collectedAmount;
-        self.totalAmount = totalAmount;
-        self.followersNO = followersNO;
-        self.deadlineDateString = deadlineDateString;
+        self.image = imageV;
+        self.title = titleV;
+        self.collectedAmount = collectedAmountV;
+        self.totalAmount = totalAmountV;
+        self.followersNO = followersNOV;
+        self.deadlineDateString = deadlineDateStringV;
         
 //        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 //        dateFormatter.dateFormat = @"dd-MMM-yyyy"; // or whatever you want; per the unicode standards

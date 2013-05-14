@@ -48,8 +48,5 @@
 @property (nonatomic, assign) BOOL *donateMoney;
 @property (nonatomic, assign) BOOL *donateObject;
 
-+ (Project *)photoWithImageURL:(NSURL *)imageURL;
-
-- (id)initWithImageURL:(NSURL *)imageURL;
 - (id)initWithInfo:(UIImage *)image title:(NSString *)title collectedAmount:(NSString *)collectedAmount totalAmount:(NSString *)totalAmount followersNO:(NSString *) followersNO deadlineDateString:(NSString *)deadlineDate;
 @end

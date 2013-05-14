@@ -11,7 +11,6 @@
 @interface DONViewController : UIViewController
 - (IBAction)backroundClick:(id)sender;
 - (IBAction)loginClicked:(id)sender;
-- (IBAction)registerClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 

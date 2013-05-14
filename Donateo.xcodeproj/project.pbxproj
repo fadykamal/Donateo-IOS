@@ -47,7 +47,6 @@
 		AD7651D31715C6E900ED3651 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD7651D21715C6E900ED3651 /* Default@2x.png */; };
 		AD7651D51715C6E900ED3651 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD7651D41715C6E900ED3651 /* Default-568h@2x.png */; };
 		AD7651D81715C6E900ED3651 /* DONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7651D71715C6E900ED3651 /* DONViewController.m */; };
-		AD7651DB1715C6E900ED3651 /* DONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7651D91715C6E900ED3651 /* DONViewController.xib */; };
 		AD7651E71715CBDE00ED3651 /* Donateo.png in Resources */ = {isa = PBXBuildFile; fileRef = AD7651E61715CBDE00ED3651 /* Donateo.png */; };
 		ADE5E438173EDB7D00F86127 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E437173EDB7D00F86127 /* line.png */; };
 		ADE5E43B173EE4F500F86127 /* Follow.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E439173EE4F500F86127 /* Follow.png */; };
@@ -55,6 +54,11 @@
 		ADE5E43E173EE5BE00F86127 /* vertical_line.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE5E43D173EE5BE00F86127 /* vertical_line.png */; };
 		ADE5E4451740134100F86127 /* DONMyProjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE5E4441740134100F86127 /* DONMyProjectCollectionViewController.m */; };
 		ADE5E44A1740162000F86127 /* DONMyProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE5E4491740162000F86127 /* DONMyProjectViewController.m */; };
+		ADE5E44D1740389700F86127 /* DONPublicProjectsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE5E44C1740389700F86127 /* DONPublicProjectsCollectionViewController.m */; };
+		ADE5E4511740398500F86127 /* DONPublicProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE5E4501740398500F86127 /* DONPublicProjectViewController.m */; };
+		ADF7262C1742ECBB00098B5F /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF7262B1742ECBB00098B5F /* RXMLElement.m */; };
+		ADF7262E1742ECFC00098B5F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF7262D1742ECFC00098B5F /* libz.dylib */; };
+		ADF726301742ED0B00098B5F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF7262F1742ED0B00098B5F /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +114,6 @@
 		AD7651D41715C6E900ED3651 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AD7651D61715C6E900ED3651 /* DONViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DONViewController.h; sourceTree = "<group>"; };
 		AD7651D71715C6E900ED3651 /* DONViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DONViewController.m; sourceTree = "<group>"; };
-		AD7651DA1715C6E900ED3651 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DONViewController.xib; sourceTree = "<group>"; };
 		AD7651E61715CBDE00ED3651 /* Donateo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Donateo.png; sourceTree = "<group>"; };
 		ADE5E437173EDB7D00F86127 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		ADE5E439173EE4F500F86127 /* Follow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Follow.png; sourceTree = "<group>"; };
@@ -120,6 +123,14 @@
 		ADE5E4441740134100F86127 /* DONMyProjectCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DONMyProjectCollectionViewController.m; path = ../DONMyProjectCollectionViewController.m; sourceTree = "<group>"; };
 		ADE5E4481740162000F86127 /* DONMyProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DONMyProjectViewController.h; sourceTree = "<group>"; };
 		ADE5E4491740162000F86127 /* DONMyProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DONMyProjectViewController.m; sourceTree = "<group>"; };
+		ADE5E44B1740389700F86127 /* DONPublicProjectsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DONPublicProjectsCollectionViewController.h; sourceTree = "<group>"; };
+		ADE5E44C1740389700F86127 /* DONPublicProjectsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DONPublicProjectsCollectionViewController.m; sourceTree = "<group>"; };
+		ADE5E44F1740398500F86127 /* DONPublicProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DONPublicProjectViewController.h; sourceTree = "<group>"; };
+		ADE5E4501740398500F86127 /* DONPublicProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DONPublicProjectViewController.m; sourceTree = "<group>"; };
+		ADF7262A1742ECBB00098B5F /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
+		ADF7262B1742ECBB00098B5F /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
+		ADF7262D1742ECFC00098B5F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		ADF7262F1742ED0B00098B5F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF726301742ED0B00098B5F /* libxml2.dylib in Frameworks */,
+				ADF7262E1742ECFC00098B5F /* libz.dylib in Frameworks */,
 				AD7651BF1715C6E900ED3651 /* UIKit.framework in Frameworks */,
 				AD7651C11715C6E900ED3651 /* Foundation.framework in Frameworks */,
 				AD7651C31715C6E900ED3651 /* CoreGraphics.framework in Frameworks */,
@@ -184,6 +197,9 @@
 		AD7651B21715C6E900ED3651 = {
 			isa = PBXGroup;
 			children = (
+				ADF7262F1742ED0B00098B5F /* libxml2.dylib */,
+				ADF7262D1742ECFC00098B5F /* libz.dylib */,
+				ADF726291742ECBA00098B5F /* RaptureXML */,
 				AD1B18EB173DCBAE005D2C25 /* careboxicon.png */,
 				AD1B18B8173D2758005D2C25 /* RecipeBookImage */,
 				AD7651C41715C6E900ED3651 /* Donateo */,
@@ -220,11 +236,11 @@
 				AD7651D61715C6E900ED3651 /* DONViewController.h */,
 				AD7651D71715C6E900ED3651 /* DONViewController.m */,
 				AD1B18B0173C6656005D2C25 /* MainStoryboard.storyboard */,
+				ADE5E44E174038A800F86127 /* Public Projects */,
 				ADE5E4461740136300F86127 /* My Projects */,
 				ADE5E4471740142700F86127 /* Recommended Projects */,
 				AD1B18B2173C6F06005D2C25 /* DONTabViewController.h */,
 				AD1B18B3173C6F06005D2C25 /* DONTabViewController.m */,
-				AD7651D91715C6E900ED3651 /* DONViewController.xib */,
 				AD1B18E9173D71F3005D2C25 /* Models */,
 				AD7651C51715C6E900ED3651 /* Supporting Files */,
 			);
@@ -284,6 +300,26 @@
 			name = "Recommended Projects";
 			sourceTree = "<group>";
 		};
+		ADE5E44E174038A800F86127 /* Public Projects */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5E44B1740389700F86127 /* DONPublicProjectsCollectionViewController.h */,
+				ADE5E44C1740389700F86127 /* DONPublicProjectsCollectionViewController.m */,
+				ADE5E44F1740398500F86127 /* DONPublicProjectViewController.h */,
+				ADE5E4501740398500F86127 /* DONPublicProjectViewController.m */,
+			);
+			name = "Public Projects";
+			sourceTree = "<group>";
+		};
+		ADF726291742ECBA00098B5F /* RaptureXML */ = {
+			isa = PBXGroup;
+			children = (
+				ADF7262A1742ECBB00098B5F /* RXMLElement.h */,
+				ADF7262B1742ECBB00098B5F /* RXMLElement.m */,
+			);
+			path = RaptureXML;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,7 +376,6 @@
 				AD7651D11715C6E900ED3651 /* Default.png in Resources */,
 				AD7651D31715C6E900ED3651 /* Default@2x.png in Resources */,
 				AD7651D51715C6E900ED3651 /* Default-568h@2x.png in Resources */,
-				AD7651DB1715C6E900ED3651 /* DONViewController.xib in Resources */,
 				AD7651E71715CBDE00ED3651 /* Donateo.png in Resources */,
 				AD1B18AF173B2478005D2C25 /* bg.jpg in Resources */,
 				AD1B18B1173C6656005D2C25 /* MainStoryboard.storyboard in Resources */,
@@ -391,6 +426,9 @@
 				AD1B18F0173E91C8005D2C25 /* DONProjectViewController.m in Sources */,
 				ADE5E4451740134100F86127 /* DONMyProjectCollectionViewController.m in Sources */,
 				ADE5E44A1740162000F86127 /* DONMyProjectViewController.m in Sources */,
+				ADE5E44D1740389700F86127 /* DONPublicProjectsCollectionViewController.m in Sources */,
+				ADE5E4511740398500F86127 /* DONPublicProjectViewController.m in Sources */,
+				ADF7262C1742ECBB00098B5F /* RXMLElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,14 +441,6 @@
 				AD7651C81715C6E900ED3651 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		AD7651D91715C6E900ED3651 /* DONViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD7651DA1715C6E900ED3651 /* en */,
-			);
-			name = DONViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -477,6 +507,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Donateo/Donateo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "Donateo/Donateo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -488,6 +519,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Donateo/Donateo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "Donateo/Donateo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

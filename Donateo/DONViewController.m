@@ -7,7 +7,8 @@
 //
 
 #import "DONViewController.h"
-#import "XMLReader.h"
+//#import "XMLReader.h"
+#import "RXMLElement.h"
 
 @interface DONViewController ()
 @end
@@ -54,6 +55,13 @@
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//    NSMutableURLRequest* ret = [NSMutableURLRequest requestWithURL:myURL];
+//    [ret setValue:@"myCookie=foobar" forHTTPHeaderField:@"Cookie"]; //for setting the cookie
+    
+//    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
+//    NSDictionary *fields = [HTTPResponse allHeaderFields];
+//    NSString *cookie = [fields valueForKey:@"Set-Cookie"]; //for getting the cookie
+    
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -67,41 +75,48 @@
     NSHTTPURLResponse *response = nil;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     //NSLog(@"Response code: %d", [response statusCode]);
-//    if ([response statusCode] >=200 && [response statusCode] <300)
-//    {
+    if ([response statusCode] >=200 && [response statusCode] <300)
+    {
         NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
         //NSLog(@"Response Data: %@", responseData);
         NSString *decodedResponse = [responseData
-                          stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        //NSLog(@"Response Data Decoded: %@", decodedResponse);
-        NSError *parseError = nil;
-        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLString:decodedResponse error:&parseError];
-        //NSLog(@"Dictionary :%@",xmlDictionary);
-        NSDictionary* resultDict1 = [[xmlDictionary allValues] objectAtIndex:0];
-        NSDictionary* resultDict2 = [[resultDict1 allValues] objectAtIndex:1];
-        //NSString *XMLmessage = [resultDict2 objectForKey:@"text"]; //Uncomment this later
-//        NSLog(@"%@", XMLmessage);
-        NSString *XMLmessage = @"SUCCESS"; //comment this later
+                          stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; //XML Response
         
-        if ([XMLmessage isEqual: @"SUCCESS"]) {
+        //NSLog(@"Response Data Decoded: %@", decodedResponse);
+        
+        //XML Parsing starts here ....
+        RXMLElement *rootXML = [RXMLElement elementFromXMLString:decodedResponse encoding:NSUTF8StringEncoding];
+        NSString *xmlBasicMessage = [rootXML child:@"basicMessage"].text;
+        NSString *xmlUserId = [rootXML child:@"userid"].text;
+        
+        //xmlBasicMessage = @"SUCCESS"; //comment this later
+        
+        if ([xmlBasicMessage isEqual: @"SUCCESS"]) {
+            NSString *loggedIn = @"YES";
+            NSString *cookie = @"";
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:loggedIn forKey:@"loggedIn"];
+            [defaults setObject:xmlUserId forKey:@"id"];
+            [defaults setObject:cookie forKey:@"cookie"];
+            [defaults setObject:_txtUsername forKey:@"email"];
+            [defaults setObject:_txtPassword forKey:@"password"];
+            [defaults synchronize];
+            
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
             UICollectionViewController *vc = [sb instantiateViewControllerWithIdentifier:@"DONTabViewController"];
             vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             [self presentViewController:vc animated:YES completion:NULL];
         }
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                          message:XMLmessage
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                          message:@"An error has occured please try again later."
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
-        //[message show];
-    //} //end of if responsecode segment
-//    else {
-//        
-//    }
+        [message show];
+    } //end of if responsecode segment
+    else {
+        
+    }
     
-}
-
-- (IBAction)registerClicked:(id)sender {
 }
 @end
