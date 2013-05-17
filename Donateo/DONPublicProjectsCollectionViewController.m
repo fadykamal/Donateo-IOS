@@ -11,12 +11,15 @@
 #import "Project.h"
 #import "DONProjectViewController.h"
 #import <QuartzCore/QuartzCore.h>
-@interface DONPublicProjectsCollectionViewController (){
-    NSArray *projects;
+#import "RXMLElement.h"
+#import "MBProgressHUD.h"
+#import "SVProgressHUD.h"
+@interface DONPublicProjectsCollectionViewController () {
+    NSMutableArray *projects;
+    int counter;
+    NSString *message;
 }
-
 @end
-
 @implementation DONPublicProjectsCollectionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,37 +46,70 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.collectionView.backgroundColor = [UIColor colorWithWhite:0.25f alpha:1.0f];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *isLoggedIn = [defaults objectForKey:@"loggedIn"];
     if ([isLoggedIn isEqualToString:@"YES"]) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UICollectionViewController *vc = [sb instantiateViewControllerWithIdentifier:@"DONTabViewController"];
-        //vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:vc animated:NO completion:NULL];
     }
     else {
-        //    recipePhotos = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"starbucks_coffee.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg", @"white_chocolate_donut.jpg", nil];
+        [SVProgressHUD show];
+        NSString *XMLRequest = [NSString stringWithFormat: @"counter=1"];
+        NSString *post = [XMLRequest stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+        NSURL *url=[NSURL URLWithString:@"http://localhost:8080/springmvc/getUrgentCrowdfundings"];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
-        projects = [NSArray arrayWithObjects:
-                    [[Project alloc] initWithInfo:[UIImage imageNamed:@"angry_birds_cake.jpg"] title:@"Project 1" collectedAmount:@"5000" totalAmount:@"10000" followersNO:@"300" deadlineDateString:@"12-10-2013"],
-                    [[Project alloc] initWithInfo:[UIImage imageNamed:@"creme_brelee.jpg"] title:@"Project 2" collectedAmount:@"200" totalAmount:@"3000" followersNO:@"200" deadlineDateString:@"10-8-2013"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"egg_benedict.jpg"] title:@"Project 3"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"full_breakfast.jpg"] title:@"Project 4"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"green_tea.jpg"] title:@"Project 5"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"ham_and_cheese_panini.jpg"] title:@"Project 6"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"ham_and_egg_sandwich.jpg"] title:@"Project 7"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"hamburger.jpg"] title:@"Project 8"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"instant_noodle_with_egg.jpg"] title:@"Project 9"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"japanese_noodle_with_pork.jpg"] title:@"Project 10"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"mushroom_risotto.jpg"] title:@"Project 11"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"noodle_with_bbq_pork.jpg"] title:@"Project 12"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"starbucks_coffee.jpg"] title:@"Project 13"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"thai_shrimp_cake.jpg"] title:@"Project 14"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"vegetable_curry.jpg"] title:@"Project 15"],
-                    //             [[Project alloc] initWithInfo:[UIImage imageNamed:@"white_chocolate_donut.jpg"] title:@"Project 16"],
-                    nil];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if ([response statusCode] >=200 && [response statusCode] <300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSString *decodedResponse = [responseData
+                                         stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; //XML Response
+            RXMLElement *listOfProjects = [RXMLElement elementFromXMLString:decodedResponse encoding:NSUTF8StringEncoding];
+            if ([listOfProjects.tag isEqualToString:@"error"]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                
+                // Configure for text only and offset down
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = listOfProjects.text;
+                hud.margin = 10.f;
+                hud.yOffset = 150.f;
+                hud.removeFromSuperViewOnHide = YES;
+                
+                [hud hide:YES afterDelay:3];
+            }
+            else {
+                RXMLElement *rootXML = [listOfProjects child:@"projects"];
+                
+                projects = [[NSMutableArray alloc] init];
+                
+                [rootXML iterateWithRootXPath:@"//crowdfunding" usingBlock: ^(RXMLElement *player) {
+                    
+                    Project *project = [[Project alloc] initWithInfo:[UIImage imageNamed:@"angry_birds_cake.jpg"] title:[player child:@"project__name"].text collectedAmount:[player child:@"collected__amount"].text totalAmount:[player child:@"amount"].text followersNO:[player child:@"number__of__followers"].text deadlineDateString:[player child:@"deadline"].text startDateString:[player child:@"start__date"].text description:[player child:@"description"].text];
+                    
+                    [projects addObject:project];
+                }];
+
+            }
+        }
+        else {
+            
+        }
+        [SVProgressHUD dismiss];
     }
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,17 +124,7 @@
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    //One Alternative
-    
-    //    static NSString *identifier = @"ProjectCell";
-    //
-    //    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    //    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RoundedBG.png"]];
-    //    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-    //    recipeImageView.layer.cornerRadius = 7;
-    //    recipeImageView.clipsToBounds = YES;
-    //    recipeImageView.image = [UIImage imageNamed:[recipePhotos objectAtIndex:indexPath.row]];
-    //    return cell;
+
     DONProjectCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProjectCell" forIndexPath:indexPath];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RoundedBG.png"]];
     Project *project = [projects objectAtIndex:indexPath.row];
@@ -108,7 +134,7 @@
     cell.followersNo.text = project.followersNO;
     cell.collectedAmount.text = project.collectedAmount;
     cell.totalAmount.text = project.totalAmount;
-    cell.progressBar.progress = project.percentageCompleted;
+    cell.progressBar.progress = project.percentageCompleted/100;
     return cell;
 }
 
@@ -122,10 +148,80 @@
         Project *tmpproject = [projects objectAtIndex:indexPath.row];
         destViewController.detailImage.image = tmpproject.image;
         destViewController.detailFollowersNo.text = tmpproject.followersNO;
-        NSString *percentage = [[NSString alloc] initWithFormat:@"%g%@",tmpproject.percentageCompleted*100,@"%"];
+        NSString *percentage = [[NSString alloc] initWithFormat:@"%g%@",tmpproject.percentageCompleted,@"%"];
         destViewController.detailPercentage.text = percentage;
         destViewController.detailDaysToGo.text = tmpproject.daysLeft;
+        destViewController.detailDescription.text = tmpproject.description;
         //[self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    
+        [SVProgressHUD show];
+        if (counter == 0) {
+            counter++;
+        }
+        
+        counter++;
+        
+        NSString *XMLRequest = [NSString stringWithFormat: @"counter=%i",counter];
+        NSString *post = [XMLRequest stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+        NSURL *url=[NSURL URLWithString:@"http://localhost:8080/springmvc/getUrgentCrowdfundings"];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if ([response statusCode] >=200 && [response statusCode] <300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSString *decodedResponse = [responseData
+                                         stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; //XML Response
+            RXMLElement *listOfProjects = [RXMLElement elementFromXMLString:decodedResponse encoding:NSUTF8StringEncoding];
+            if ([listOfProjects.tag isEqualToString:@"error"]) {
+                message = listOfProjects.text;
+                //NSLog(@"%@",message);
+            }
+            else {
+                RXMLElement *rootXML = [listOfProjects child:@"projects"];
+                
+                projects = [[NSMutableArray alloc] init];
+                
+                [rootXML iterateWithRootXPath:@"//crowdfunding" usingBlock: ^(RXMLElement *player) {
+                    
+                    Project *project = [[Project alloc] initWithInfo:[UIImage imageNamed:@"angry_birds_cake.jpg"] title:[player child:@"project__name"].text collectedAmount:[player child:@"collected__amount"].text totalAmount:[player child:@"amount"].text followersNO:[player child:@"number__of__followers"].text deadlineDateString:[player child:@"deadline"].text startDateString:[player child:@"start__date"].text description:[player child:@"description"].text];
+                    
+                    [projects addObject:project];
+                }];
+                
+            }
+        }
+        else {
+            
+        }
+
+    [SVProgressHUD dismiss];
+    if ([message length] != 0) {
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        
+        // Configure for text only and offset down
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        hud.margin = 10.f;
+        hud.yOffset = 150.f;
+        hud.removeFromSuperViewOnHide = YES;
+        
+        [hud hide:YES afterDelay:1.5];
     }
 }
 

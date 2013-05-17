@@ -59,6 +59,10 @@
 		ADF7262C1742ECBB00098B5F /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF7262B1742ECBB00098B5F /* RXMLElement.m */; };
 		ADF7262E1742ECFC00098B5F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF7262D1742ECFC00098B5F /* libz.dylib */; };
 		ADF726301742ED0B00098B5F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF7262F1742ED0B00098B5F /* libxml2.dylib */; };
+		ADF72636174516D100098B5F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF72635174516D100098B5F /* MBProgressHUD.m */; };
+		ADF7263C17458CEE00098B5F /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ADF7263917458CEE00098B5F /* SVProgressHUD.bundle */; };
+		ADF7263D17458CEE00098B5F /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF7263B17458CEE00098B5F /* SVProgressHUD.m */; };
+		ADF7263F1745954D00098B5F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF7263E1745954D00098B5F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +135,12 @@
 		ADF7262B1742ECBB00098B5F /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
 		ADF7262D1742ECFC00098B5F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		ADF7262F1742ED0B00098B5F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		ADF72634174516D100098B5F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../MBProgressHUD.h; sourceTree = "<group>"; };
+		ADF72635174516D100098B5F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../MBProgressHUD.m; sourceTree = "<group>"; };
+		ADF7263917458CEE00098B5F /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		ADF7263A17458CEE00098B5F /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		ADF7263B17458CEE00098B5F /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		ADF7263E1745954D00098B5F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF7263F1745954D00098B5F /* QuartzCore.framework in Frameworks */,
 				ADF726301742ED0B00098B5F /* libxml2.dylib in Frameworks */,
 				ADF7262E1742ECFC00098B5F /* libz.dylib in Frameworks */,
 				AD7651BF1715C6E900ED3651 /* UIKit.framework in Frameworks */,
@@ -219,6 +230,7 @@
 		AD7651BD1715C6E900ED3651 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADF7263E1745954D00098B5F /* QuartzCore.framework */,
 				AD7651BE1715C6E900ED3651 /* UIKit.framework */,
 				AD7651C01715C6E900ED3651 /* Foundation.framework */,
 				AD7651C21715C6E900ED3651 /* CoreGraphics.framework */,
@@ -229,6 +241,8 @@
 		AD7651C41715C6E900ED3651 /* Donateo */ = {
 			isa = PBXGroup;
 			children = (
+				ADF7263817458CEE00098B5F /* SVProgressHUD */,
+				ADF7263717458CC900098B5F /* MB Progress HUD */,
 				AD7651E11715C96800ED3651 /* Assets */,
 				AD1B18EA173D723D005D2C25 /* XML Reader */,
 				AD7651CD1715C6E900ED3651 /* DONAppDelegate.h */,
@@ -320,6 +334,25 @@
 			path = RaptureXML;
 			sourceTree = "<group>";
 		};
+		ADF7263717458CC900098B5F /* MB Progress HUD */ = {
+			isa = PBXGroup;
+			children = (
+				ADF72634174516D100098B5F /* MBProgressHUD.h */,
+				ADF72635174516D100098B5F /* MBProgressHUD.m */,
+			);
+			name = "MB Progress HUD";
+			sourceTree = "<group>";
+		};
+		ADF7263817458CEE00098B5F /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				ADF7263917458CEE00098B5F /* SVProgressHUD.bundle */,
+				ADF7263A17458CEE00098B5F /* SVProgressHUD.h */,
+				ADF7263B17458CEE00098B5F /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -404,6 +437,7 @@
 				ADE5E43B173EE4F500F86127 /* Follow.png in Resources */,
 				ADE5E43C173EE4F500F86127 /* Unfollow.png in Resources */,
 				ADE5E43E173EE5BE00F86127 /* vertical_line.png in Resources */,
+				ADF7263C17458CEE00098B5F /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +463,8 @@
 				ADE5E44D1740389700F86127 /* DONPublicProjectsCollectionViewController.m in Sources */,
 				ADE5E4511740398500F86127 /* DONPublicProjectViewController.m in Sources */,
 				ADF7262C1742ECBB00098B5F /* RXMLElement.m in Sources */,
+				ADF72636174516D100098B5F /* MBProgressHUD.m in Sources */,
+				ADF7263D17458CEE00098B5F /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

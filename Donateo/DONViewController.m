@@ -58,8 +58,8 @@
 //    NSMutableURLRequest* ret = [NSMutableURLRequest requestWithURL:myURL];
 //    [ret setValue:@"myCookie=foobar" forHTTPHeaderField:@"Cookie"]; //for setting the cookie
     
-//    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
-//    NSDictionary *fields = [HTTPResponse allHeaderFields];
+//    NSHTTPURLResponse *response = (NSHTTPURLResponse *)response;
+//    NSDictionary *fields = [response allHeaderFields];
 //    NSString *cookie = [fields valueForKey:@"Set-Cookie"]; //for getting the cookie
     
     [request setURL:url];
@@ -73,6 +73,7 @@
     
     NSError *error = [[NSError alloc] init];
     NSHTTPURLResponse *response = nil;
+    
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     //NSLog(@"Response code: %d", [response statusCode]);
     if ([response statusCode] >=200 && [response statusCode] <300)
@@ -93,13 +94,11 @@
         
         if ([xmlBasicMessage isEqual: @"SUCCESS"]) {
             NSString *loggedIn = @"YES";
-            NSString *cookie = @"";
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:loggedIn forKey:@"loggedIn"];
             [defaults setObject:xmlUserId forKey:@"id"];
-            [defaults setObject:cookie forKey:@"cookie"];
-            [defaults setObject:_txtUsername forKey:@"email"];
-            [defaults setObject:_txtPassword forKey:@"password"];
+            [defaults setObject:_txtUsername.text forKey:@"email"];
+            [defaults setObject:_txtPassword.text forKey:@"password"];
             [defaults synchronize];
             
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -107,12 +106,14 @@
             vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             [self presentViewController:vc animated:YES completion:NULL];
         }
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Warning"
-                                                          message:@"An error has occured please try again later."
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        else {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                              message:@"An error has occured please try again later."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
     } //end of if responsecode segment
     else {
         

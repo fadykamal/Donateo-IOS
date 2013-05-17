@@ -19,6 +19,30 @@
 //    self.viewController = [[DONViewController alloc] bundle:nil];
 //    self.window.rootViewController = self.viewController;
 //    [self.window makeKeyAndVisible];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"%@",[defaults objectForKey:@"email"]);
+    NSLog(@"%@",[defaults objectForKey:@"password"]);
+    NSString *isLoggedIn = [defaults objectForKey:@"loggedIn"];
+    if ([isLoggedIn isEqualToString:@"YES"]) {
+        
+        NSString *XMLRequest = [NSString stringWithFormat: @"user=<login><email>%@</email><password>%@</password></login>", [defaults objectForKey:@"email"],[defaults objectForKey:@"password"]];
+
+        NSString *post = [XMLRequest stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+        NSURL *url=[NSURL URLWithString:@"http://localhost:8080/springmvc/xLogin"];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+    }
     return YES;
 }
 

@@ -20,6 +20,7 @@
     NSString *location;
     NSString *followersNO;
     NSDate *startDate;
+    NSString *startDateString;
     NSDate *deadlineDate;
     NSString *deadlineDateString;
     NSString *daysLeft;
@@ -40,6 +41,7 @@
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSString *followersNO;
 @property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSString *startDateString;
 @property (nonatomic, strong) NSDate *deadlineDate;
 @property (nonatomic, strong) NSString *deadlineDateString;
 @property (nonatomic, strong) NSString *daysLeft;
@@ -48,5 +50,5 @@
 @property (nonatomic, assign) BOOL *donateMoney;
 @property (nonatomic, assign) BOOL *donateObject;
 
-- (id)initWithInfo:(UIImage *)image title:(NSString *)title collectedAmount:(NSString *)collectedAmount totalAmount:(NSString *)totalAmount followersNO:(NSString *) followersNO deadlineDateString:(NSString *)deadlineDate;
+- (id)initWithInfo:(UIImage *)image title:(NSString *)title collectedAmount:(NSString *)collectedAmount totalAmount:(NSString *)totalAmount followersNO:(NSString *) followersNO deadlineDateString:(NSString *)deadlineDate startDateString:(NSString *)startDate description:(NSString *)description;
 @end
